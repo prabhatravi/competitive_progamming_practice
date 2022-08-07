@@ -23,7 +23,7 @@ public:
         int max=(R-L+1), res=1;
         vector<bool> arr(max, false);
         for (auto &x:p) {
-            if (1LL*x*x<=T) {
+            if (1LL*x*x<=R) {
                 long long i=(L/x)*x;
                 if(i<L)i+=x;
                 for(;i<R;i+=x) {
