@@ -1,35 +1,67 @@
+// { Driver Code Starts
+// Initial Template for C++
+
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution {
-public:
-    bool ck(long v, long n, long m, long l, long h[], long a[]) {
-        long tot=0;
-        for (int i = 0; i < n; i++) {
-            long cur=h[i]+(v*a[i]);
-            if (cur>=l) {
-                tot+=cur;
-            }
-        }
-        if (tot>=m){
-            return 1;
-        }
-        return 0;
-    }
+ // } Driver Code Ends
+// User function Template for C++
 
-    long buzTime(long N, long M, long L, long H[], long A[]) {
-        long low=0,high=2e9+5;
-        long ans;
-        while (low<=high) {
-            long mid = (low+mid)/2;
-            if (ck(mid, N, M, L, H, A)) {
-                high=mid-1;
-                ans=mid;
-            } else {
-                low = mid+1;
-            }
-        }
-        return ans;
-    }
+class Solution{
+public:
+bool check(long H[], long A[], long L, long M, long mid, long n)
+   {
+       long current_speed=0;
+       for(int i=0;i<n;i++)
+       {
+           long speed=H[i]+(mid*A[i]);
+           if(speed>=L)
+           current_speed+=speed;
+       }
+       if(current_speed>=M)
+       return true;
+       else
+       return false;
+   }
+   
+   long buzzTime(long N, long M, long L, long H[], long A[])
+   {
+      long low=0;
+      long high=max(L,M);
+      long ans=0;
+      while(low<=high)
+      {
+          long mid=low+(high-low)/2;
+          if(check(H, A, L, M, mid, N))
+          {
+              ans=mid;
+              high=mid-1;
+          }
+          else
+          {
+              low=mid+1;
+          }
+      }
+      
+      return ans;
+   }
 };
+
+// { Driver Code Starts.
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long N, M, L;
+        cin>>N>>M>>L;
+        long H[N], A[N];
+        for(long i = 0;i < N;i++) 
+            cin>>H[i]>>A[i];
+        
+        Solution ob;
+        cout<<ob.buzzTime(N, M, L, H, A)<<"\n";
+    }
+    return 0;
+}  // } Driver Code Ends
 
