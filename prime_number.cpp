@@ -8,7 +8,7 @@ void seive(){
     for (int i=2;i<N;i++) {
         if (prime[i]) {
             ls.push_back(i);
-            for (int j=i*2;j<N;j=+i) {
+            for (int j=i*i;j<N;j=+i) {
                 prime[j] = 0;
             }
         }
