@@ -19,38 +19,43 @@ vector<long long> nextLargerElement(vector<long long> a, int n) {
 }
 #endif
 void nextLargerElement(vector<int>a, int n) {
-    vector<long long>sol(n);
+    //vector<long long>sol(n);
+    vector<int>sol(n);
     stack<int>st;
     for (int i=0;i<n;i++) {
         if (st.empty()) {
-            st.push(a[i]);
+            st.push(i);
         } else {
-            int x=st.top();
-            if (x>a[i]) {
-                st.push(a[i]);
+            int x=a[st.top()];
+            if (x>=a[i]) {
+                st.push(i);
             } else
             {
-                while (!st.empty()&&st.top()<a[i])
+                while (!st.empty()&&a[st.top()]<a[i])
                 {
-                    cout<<st.top()<<" -> "<<a[i]<<endl;
+                    //cout<<st.top()<<" -> "<<a[i]<<endl;
+                    sol[st.top()]=a[i];
                     st.pop();
                 }
-                st.push(a[i]);
-                
-            }
-            
+                st.push(i);
+            }       
         }
     }
     while (!st.empty())
     {
-        cout<<st.top()<<" -> "<<-1<<endl;
+        //cout<<st.top()<<" -> "<<-1<<endl;
+        sol[st.top()]=-1;
         st.pop();
     }
+    for (auto e:sol)    {
+        cout<<e<<" ";
+    }
+    
     
 }
 
 int main() {
-    vector<int>a={1,3,2,4};
+    vector<int>a={5, 6, 5, 7};
     int n=4;
     nextLargerElement(a, 4);
 }
