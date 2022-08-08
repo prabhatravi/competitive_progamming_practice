@@ -63,5 +63,5 @@ int main(){
         cout<<ob.buzzTime(N, M, L, H, A)<<"\n";
     }
     return 0;
-}  // } Driver Code Ends
+}  // } Driver Code Endsge
 
