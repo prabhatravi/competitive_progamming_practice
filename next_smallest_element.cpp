@@ -55,7 +55,7 @@ void nextSmallestElement(vector<int>a, int n) {
 }
 
 int main() {
-    vector<int>a={5, 6, 5, 7};
+    vector<int>a={1, 3, 0, 2, 1};
     int n=4;
     nextSmallestElement(a, 4);
 }
