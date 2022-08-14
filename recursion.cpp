@@ -9,6 +9,6 @@ int rec(int ind, int w) {
  
     int leave=rec(ind+1, w);
     if (weight[ind]<=w)
-        int take=rec(ind+1, w-weignt[ind])+val[ind];
+        int take=rec(ind+1, w-weight[ind])+val[ind];
     return max(take, leave);
 }
