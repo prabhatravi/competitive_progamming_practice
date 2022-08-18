@@ -6,6 +6,7 @@ class Solution {
         int findSingleElement(vector < int > & nums) 
         {
             int low = 0;
+            int n = nums.size();
             int high = n - 2;
         
             while (low <= high) {
