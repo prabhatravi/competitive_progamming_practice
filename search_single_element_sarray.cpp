@@ -39,7 +39,6 @@ int main() {
     };
 
     int elem = obj.findSingleElement(v);
-    cout << "The single occurring element is " +
-    " << elem << endl;
+    cout << "The single occurring element is "<< elem << endl;
 
 }
