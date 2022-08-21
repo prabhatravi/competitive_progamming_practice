@@ -18,6 +18,7 @@ using namespace std;
 #define S second
 const int N = 2e5 + 5;
 int cr[N];
+int sz[N];
 
 // find the CR
 int find(int x) {
@@ -42,7 +43,14 @@ void merge(int u, int v) {
     u = find(u);
     v = find(v);
     if (u != v) {
-        cr[u] = v;
+        // cr[u] = v;
+        if (sz[u] < sz[v]) {
+            sz[v] += sz[u];
+            cr[u] = v;
+        } else {
+            sz[u] += sz[v];
+            cr[v] = u;
+        }
     }
 }
 
@@ -52,6 +60,7 @@ int main() {
     // assign parent of itself
     for (int i = 0; i < n; i++) {
         cr[i] = i;
+        sz[i] = 1;
     }
     while (q--) {
         int t, v, u;
