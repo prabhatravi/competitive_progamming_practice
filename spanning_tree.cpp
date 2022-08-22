@@ -17,6 +17,7 @@ using namespace std;
 #define F first
 #define S second
 const int N = 1e5 + 5;
+int a[N];
 int t[N * 4];
 void build(int ind, int l, int r) {
     if (l == r) { // leaf node
