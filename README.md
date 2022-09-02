@@ -1,2 +1,2 @@
-# competitive_progamming_practice
+# competitive progamming practice
  
